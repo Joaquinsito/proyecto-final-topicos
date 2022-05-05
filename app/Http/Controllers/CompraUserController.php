@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\CompraUser;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\User;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class CompraUserController extends Controller
 {
@@ -14,7 +18,15 @@ class CompraUserController extends Controller
      */
     public function index()
     {
-        //
+        return CompraUser::all();
+    }
+
+    public function compraUser(Request $request){
+        $user = User::where('email', $request->email)->first();
+        $compraUser = DB::table('products')->leftJoin('compra_users', 'products.id', '=', 'compra_users.products_id')
+        ->where('compras_users.user_id', '=', $user->id)
+        ->get();
+        return $compraUser;
     }
 
     /**
@@ -22,9 +34,26 @@ class CompraUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+   
+        $validator = Validator::make($request->all(), [
+            'id' => 'required|exists:users,id',
+            'product_id' => 'required|exists:products,id',
+            'amount' => 'required|max:5'    
+        ]);
+
+        if ($validator->fails()) {
+            return $validator->errors();
+        }
+
+        $compra = CompraUser::create([
+            'user_id' => $request->id,
+            'products_id' => $request->product_id,
+            'amount' => $request->amount
+        ]);
+
+        return CompraUser::all();
     }
 
     /**

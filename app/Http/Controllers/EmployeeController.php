@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class EmployeeController extends Controller
 {
@@ -14,7 +16,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+       return Employee::all();
     }
 
     /**
@@ -22,9 +24,27 @@ class EmployeeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+            'lastname' => 'required|max:255',
+            'email' => 'required|email',
+            'password' => 'required|min:8'
+        ]);
+
+        if ($validator->fails()) {
+            return $validator->errors();
+        }
+
+        $employee = Employee::create([
+            'name' => $request->name,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+            'password' => $request->password
+        ]);
+
+        return Employee::all();
     }
 
     /**
@@ -69,7 +89,10 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        //
+        Employee::where('email', $request->email)
+        ->update(['password' => $request->password]);
+
+        return Employee::all();
     }
 
     /**
@@ -78,8 +101,10 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Employee $employee)
+    public function destroy(Employee $employee, Request $request)
     {
-        //
+        $employee = Employee::where('email', $request->email)->delete();
+
+        return Employee::all();
     }
 }

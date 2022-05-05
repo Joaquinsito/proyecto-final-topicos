@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
@@ -14,7 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return Product::all();
     }
 
     /**
@@ -22,9 +23,29 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+            'category_id' => 'required|exists:categories,id',
+            'description' => 'required|max:255',
+            'price' => 'required',
+            'stock' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return $validator->errors();
+        }
+
+        $product = Product::create([
+            'name' => $request->name,
+            'category_id' => $request->category_id,
+            'description' => $request->description,
+            'price' => $request->price,
+            'stock' => $request->stock,
+        ]);
+
+        return Product::all();
     }
 
     /**
@@ -69,7 +90,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        Product::where('name', $request->name)
+        ->update(['stock' => $request->stock]);
     }
 
     /**
@@ -78,8 +100,8 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Product $product, Request $request)
     {
-        //
+        Product::where('name', $request->name)->delete();
     }
 }

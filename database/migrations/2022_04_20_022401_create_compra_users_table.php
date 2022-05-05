@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('compra_users', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('products_id')->references('id')->on('products')->onDelete('cascade');
+            $table->string('amount');
             $table->timestamps();
         });
     }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class CategoryController extends Controller
 {
@@ -14,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return Category::all();
     }
 
     /**
@@ -22,9 +24,21 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            return $validator->errors();
+        }
+
+        $category = Category::create([
+            'name' => $request->name,
+        ]);
+
+        return Category::all();
     }
 
     /**
@@ -69,7 +83,10 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        Category::where('id', $request->id)
+        ->update(['name' => $request->name]);
+
+        return Category::all();
     }
 
     /**
@@ -78,8 +95,10 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category, Request $request)
     {
-        //
+        $category = Category::where('id', $request->id)->delete();
+
+        return Category::all();
     }
 }
