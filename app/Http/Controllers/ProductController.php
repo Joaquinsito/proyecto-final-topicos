@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -16,6 +18,20 @@ class ProductController extends Controller
     public function index()
     {
         return Product::all();
+    }
+
+    public function food(){
+        $food = DB::table('products')->where("category_id","=",2)->get();
+        return $food;
+    }
+
+    public function toys(){
+        $food = DB::table('products')->where("category_id","=",1)->get();
+        return $food;
+    }
+    public function clothes(){
+        $food = DB::table('products')->where("category_id","=",3)->get();
+        return $food;
     }
 
     /**

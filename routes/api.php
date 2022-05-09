@@ -32,7 +32,12 @@ Route::post('deletecategory', [CategoryController::class, 'destroy']);
 Route::post('createemployee', [EmployeeController::class, 'create']);
 Route::post('updateemployee', [EmployeeController::class, 'update']);
 Route::post('deleteemployee', [EmployeeController::class, 'destroy']);
+
+
 Route::post('indexproduct', [ProductController::class, 'index']);
+Route::post('food', [ProductController::class, 'food'] );
+Route::post('toys', [ProductController::class, 'toys'] );
+Route::post('clothes', [ProductController::class, 'clothes'] );
 Route::post('createproduct', [ProductController::class, 'create']);
 Route::post('updateproduct', [ProductController::class, 'update']);
 Route::post('deleteproduct', [ProductController::class, 'destroy']);
