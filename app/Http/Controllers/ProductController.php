@@ -20,6 +20,11 @@ class ProductController extends Controller
         return Product::all();
     }
 
+    public function categories(Request $request){
+        $products = DB::table('products')->where("category_id", "=", $request->category_id)->get();
+        return $products;
+    }
+
     public function food(){
         $food = DB::table('products')->where("category_id","=",2)->get();
         return $food;

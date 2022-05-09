@@ -38,6 +38,8 @@ Route::post('indexproduct', [ProductController::class, 'index']);
 Route::post('food', [ProductController::class, 'food'] );
 Route::post('toys', [ProductController::class, 'toys'] );
 Route::post('clothes', [ProductController::class, 'clothes'] );
+Route::post('categories', [ProductController::class, 'categories'] );
+
 Route::post('createproduct', [ProductController::class, 'create']);
 Route::post('updateproduct', [ProductController::class, 'update']);
 Route::post('deleteproduct', [ProductController::class, 'destroy']);
