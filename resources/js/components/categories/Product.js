@@ -3,7 +3,7 @@ import { list } from "postcss";
 import React, { useEffect, useState } from "react";
 import { Container, Table, Card, ListGroup, ListGroupItem, Row, Col, Button } from "react-bootstrap"
 import ProductDetails from "./ProductDetails"
-import { useHistory } from "react-router-dom";
+import { useHistory, useNavigate } from "react-router-dom";
 import { left } from "@popperjs/core";
 
 
@@ -16,7 +16,11 @@ const Product = (props) => {
             width: '80%',
             height: '250px',
         }
-    }
+    }   
+
+    let nav = useHistory();
+
+    
 
     const history = useHistory();
     const formData = new FormData();
@@ -39,6 +43,21 @@ const Product = (props) => {
         setLoading(false);                      
     };
 
+    const toComponentB = (dataItem) => {
+        nav.push({
+            pathname: "/projectMascotitas/public/categories/Details",
+            state: {
+                id: dataItem.id,
+                name: dataItem.name,
+                image: dataItem.image,
+                price: dataItem.price,
+                stock: dataItem.stock,
+                description: dataItem.description,
+            },
+        });
+    };
+
+
     return (
         <> 
         
@@ -51,7 +70,7 @@ const Product = (props) => {
             <Row>
             {data.map((dataItem) => (
             <Col sm={3}  key={dataItem.id}>
-                <Card style={{ width: '18rem' }} className="mb-4">
+                <Card style={{ width: '18rem' }} className="mb-4 shadow p-3 mb-5 bg-white rounded">
                     <Card.Img variant="top" src={dataItem.image} style={style.cardImg} className="mx-auto"/>
                     <Card.Body>
                         <Card.Title>{dataItem.name}</Card.Title>
@@ -59,8 +78,11 @@ const Product = (props) => {
                         <ListGroup className="list-group-flush">
                             <ListGroupItem>Price: {dataItem.price}</ListGroupItem>
                             <ListGroupItem>Stock: {dataItem.stock}</ListGroupItem>
+                            <p className="d-none"> {dataItem.description}</p>
                     </ListGroup>
-                    <Button>View Details</Button>
+                    <Button onClick={() => {
+                        toComponentB(dataItem);
+                    }}>View Details</Button>
                 </Card>
             </Col>         
             ))}
