@@ -26,18 +26,17 @@ use PhpParser\Node\Expr\PostDec;
 
 Route::post('register', [PassportAuthController::class, 'register']);
 Route::post('login', [PassportAuthController::class, 'login']);
+
 Route::post('createcategory', [CategoryController::class, 'create']);
 Route::post('updatecategory', [CategoryController::class, 'update']);
 Route::post('deletecategory', [CategoryController::class, 'destroy']);
+
 Route::post('createemployee', [EmployeeController::class, 'create']);
 Route::post('updateemployee', [EmployeeController::class, 'update']);
 Route::post('deleteemployee', [EmployeeController::class, 'destroy']);
 
 
 Route::post('indexproduct', [ProductController::class, 'index']);
-Route::post('food', [ProductController::class, 'food'] );
-Route::post('toys', [ProductController::class, 'toys'] );
-Route::post('clothes', [ProductController::class, 'clothes'] );
 Route::post('categories', [ProductController::class, 'categories'] );
 
 Route::post('createproduct', [ProductController::class, 'create']);

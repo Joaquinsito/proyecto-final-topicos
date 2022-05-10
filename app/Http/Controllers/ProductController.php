@@ -25,20 +25,6 @@ class ProductController extends Controller
         return $products;
     }
 
-    public function food(){
-        $food = DB::table('products')->where("category_id","=",2)->get();
-        return $food;
-    }
-
-    public function toys(){
-        $food = DB::table('products')->where("category_id","=",1)->get();
-        return $food;
-    }
-    public function clothes(){
-        $food = DB::table('products')->where("category_id","=",3)->get();
-        return $food;
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -51,7 +37,8 @@ class ProductController extends Controller
             'category_id' => 'required|exists:categories,id',
             'description' => 'required|max:255',
             'price' => 'required',
-            'stock' => 'required'
+            'stock' => 'required',
+            'image' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -64,6 +51,7 @@ class ProductController extends Controller
             'description' => $request->description,
             'price' => $request->price,
             'stock' => $request->stock,
+            'image' => $request->image,
         ]);
 
         return Product::all();

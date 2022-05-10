@@ -1,7 +1,8 @@
 
+import { bottom } from "@popperjs/core";
 import { list } from "postcss";
 import React, { useEffect, useState } from "react";
-import { Container, Table, Card, ListGroup, ListGroupItem, Row, Col } from "react-bootstrap"
+import { Container, Table, Card, ListGroup, ListGroupItem, Row, Col, Image} from "react-bootstrap"
 
 const Home = (props) => {
     
@@ -11,7 +12,14 @@ const Home = (props) => {
         getProducts()
     },[])
 
-
+    const style ={
+        cardImg: {
+            objectFit: 'cover',
+            borderRadius: 25,
+            width: '80%',
+            height: '250px',
+        }
+    }
     const getProducts = async () => {
         setLoading(true);
         axios.post('http://localhost/projectMascotitas/public/api/indexproduct')
@@ -56,13 +64,10 @@ const Home = (props) => {
             <Row>
             {data.map((dataItem) => (
             <Col sm={3}   key={dataItem.id}>
-                <Card style={{ width: '18rem' }}    >
-                    <Card.Img variant="top" src="" />
+                <Card style={{ width: '18rem'}} className="mb-4">
+                    <Card.Img src={dataItem.image} style={style.cardImg} className="mx-auto"/>
                     <Card.Body>
                         <Card.Title>{dataItem.name}</Card.Title>
-                        <Card.Text>
-                            {dataItem.description}
-                        </Card.Text>
                     </Card.Body>
                         <ListGroup className="list-group-flush">
                             <ListGroupItem>Price: {dataItem.price}</ListGroupItem>
