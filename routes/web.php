@@ -32,3 +32,7 @@ Route::get('/categories/Toys', function () {
 Route::get('/categories/Clothes', function () {
     return view('welcome');
 });
+
+Route::get('/categories/Details', function () {
+    return view('welcome');
+});
