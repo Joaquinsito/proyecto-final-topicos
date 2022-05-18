@@ -8,7 +8,11 @@ import Toys from './categories/Toys'
 import Clothes from './categories/Clothes'
 import ProductDetails from "./categories/ProductDetails"
 import Login from './Login';
+import Register from './Register'
 import Mainprofile from './user/Mainprofile'
+import EditProfile from './user/EditProfile'
+import NavigationUser from './user/NavUser'
+import OrderUser from './user/OrderUser'
 
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom"
 
@@ -19,7 +23,6 @@ function Example() {
         <>
         <Router>
             <main>
-                <Navigation />
                 <Switch>
                     <Route path="/projectMascotitas/public/" exact component={Main} />
                     <Route path="/projectMascotitas/public/Home" exact component={Home} />
@@ -27,6 +30,11 @@ function Example() {
                     <Route path="/projectMascotitas/public/categories/Toys" component={Toys} />
                     <Route path="/projectMascotitas/public/categories/Clothes" component={Clothes} />
                     <Route path="/projectMascotitas/public/categories/Details" component={ProductDetails} />
+                    <Route path="/projectMascotitas/public/Login" component={Login} />
+                    <Route path="/projectMascotitas/public/Register" component={Register} />
+                    <Route path="/projectMascotitas/public/user/Mainprofile" component={Mainprofile} />
+                    <Route path="/projectMascotitas/public/user/EditProfile" component={EditProfile} />
+                    <Route path="/projectMascotitas/public/user/NavigationUser" component={NavigationUser} />
                 </Switch>
             </main>
         </Router>

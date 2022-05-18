@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class PassportAuthController extends Controller
 {
@@ -43,5 +44,15 @@ class PassportAuthController extends Controller
         } else {
             return response()->json(['error' => 'Unauthorised'], 401);
         }
+    }
+
+    public function userData(Request $request){
+        $datos = DB::table('users')->where("id", "=", $request->id)->get();
+        return $datos;
+    }
+
+    public function updateData(Request $request){
+        DB::table('users')->where("id", "=", $request->id)->update(['name' => $request->name, 'lastname' => $request->lastname, 'address' => $request->address]);
+        
     }
 }

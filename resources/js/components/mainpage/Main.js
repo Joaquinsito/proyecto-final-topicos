@@ -1,8 +1,10 @@
 import React from "react";
 import { Carousel, Button, Container, Col, Row, Image } from "react-bootstrap";
+import Navigation from '../Nav';
 const Main = (props) => {
     return(
         <>  
+            <Navigation/>
             <Container>
             <Carousel variant="dark">
                 <Carousel.Item interval={1000}>

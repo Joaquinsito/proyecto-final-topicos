@@ -26,6 +26,9 @@ use PhpParser\Node\Expr\PostDec;
 
 Route::post('register', [PassportAuthController::class, 'register']);
 Route::post('login', [PassportAuthController::class, 'login']);
+Route::post('userData', [PassportAuthController::class, 'userData']);
+Route::post('updateData', [PassportAuthController::class, 'updateData']);
+
 
 Route::post('createcategory', [CategoryController::class, 'create']);
 Route::post('updatecategory', [CategoryController::class, 'update']);
@@ -43,11 +46,11 @@ Route::post('createproduct', [ProductController::class, 'create']);
 Route::post('updateproduct', [ProductController::class, 'update']);
 Route::post('deleteproduct', [ProductController::class, 'destroy']);
 
-Route::post('compraUser', [CompraUserController::class, 'create']);
+Route::post('createCompra', [CompraUserController::class, 'create']);
 Route::post('allcompraUser', [CompraUserController::class, 'index']);
 
 
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->group(function (){
+    
 });

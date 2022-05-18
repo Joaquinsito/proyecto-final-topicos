@@ -3,12 +3,14 @@ import { list } from "postcss";
 import React, { useEffect, useState } from "react";
 import { Container, Table, Card, ListGroup, ListGroupItem, Row, Col, Button } from "react-bootstrap"
 import ProductDetails from "./ProductDetails"
-import { useHistory, useNavigate } from "react-router-dom";
+import { useHistory, useNavigate, useLocation} from "react-router-dom";
 import { left } from "@popperjs/core";
+import NavigationUser from "../user/NavUser"
 
 
 const Product = (props) => {
-
+    const location = useLocation();
+    console.log(location.state.id);
     const style ={
         cardImg: {
             objectFit: 'cover',
@@ -19,10 +21,7 @@ const Product = (props) => {
     }   
 
     let nav = useHistory();
-
     
-
-    const history = useHistory();
     const formData = new FormData();
     formData.append('category_id', props.categories)
     const [data, setData] = useState([])
@@ -53,6 +52,7 @@ const Product = (props) => {
                 price: dataItem.price,
                 stock: dataItem.stock,
                 description: dataItem.description,
+                id_user: location.state.id
             },
         });
     };
@@ -60,7 +60,7 @@ const Product = (props) => {
 
     return (
         <> 
-        
+            <NavigationUser/>
             <Container>
             <center>
                     <br />

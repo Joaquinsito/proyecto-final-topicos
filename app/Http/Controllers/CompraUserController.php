@@ -22,7 +22,7 @@ class CompraUserController extends Controller
     }
 
     public function compraUser(Request $request){
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('id', $request->id)->first();
         $compraUser = DB::table('products')->leftJoin('compra_users', 'products.id', '=', 'compra_users.products_id')
         ->where('compras_users.user_id', '=', $user->id)
         ->get();
@@ -40,7 +40,7 @@ class CompraUserController extends Controller
         $validator = Validator::make($request->all(), [
             'id' => 'required|exists:users,id',
             'product_id' => 'required|exists:products,id',
-            'amount' => 'required|max:5'    
+            'amount' => 'required|max:10'    
         ]);
 
         if ($validator->fails()) {

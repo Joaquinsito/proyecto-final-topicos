@@ -36,3 +36,18 @@ Route::get('/categories/Clothes', function () {
 Route::get('/categories/Details', function () {
     return view('welcome');
 });
+
+Route::get('/Login', function () {
+    return view('welcome');
+});
+Route::get('/Register', function () {
+    return view('welcome');
+});
+
+Route::get('/user/Mainprofile', function () {
+    return view('welcome');
+});
+
+Route::get('/user/NavUser', function () {
+    return view('welcome');
+});
