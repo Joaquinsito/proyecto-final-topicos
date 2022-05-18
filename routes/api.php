@@ -48,6 +48,7 @@ Route::post('deleteproduct', [ProductController::class, 'destroy']);
 
 Route::post('createCompra', [CompraUserController::class, 'create']);
 Route::post('allcompraUser', [CompraUserController::class, 'index']);
+Route::post('compraUser', [CompraUserController::class, 'compraUser']);
 
 
 

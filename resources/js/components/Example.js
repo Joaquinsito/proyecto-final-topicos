@@ -35,6 +35,7 @@ function Example() {
                     <Route path="/projectMascotitas/public/user/Mainprofile" component={Mainprofile} />
                     <Route path="/projectMascotitas/public/user/EditProfile" component={EditProfile} />
                     <Route path="/projectMascotitas/public/user/NavigationUser" component={NavigationUser} />
+                    <Route path="/projectMascotitas/public/user/OrderUser" exact component={OrderUser} />
                 </Switch>
             </main>
         </Router>

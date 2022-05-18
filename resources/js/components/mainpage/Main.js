@@ -17,18 +17,14 @@ const Main = (props) => {
                 <Carousel.Item interval={500}>
                     <img
                         className="d-block w-100"
-                        src="./images/img1.jpg"
+                        src="./images/img2.jpg"
                         alt="Second slide"
                     />
-                    <Carousel.Caption>
-                        <h3>Conoce más sobre esta información</h3>
-                        <Button variant="dark">Descubre más</Button>
-                    </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="./images/img1.jpg"
+                        src="./images/img3.jpg"
                         alt="Third slide"
                     />
                 </Carousel.Item>

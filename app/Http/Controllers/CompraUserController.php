@@ -22,11 +22,8 @@ class CompraUserController extends Controller
     }
 
     public function compraUser(Request $request){
-        $user = User::where('id', $request->id)->first();
-        $compraUser = DB::table('products')->leftJoin('compra_users', 'products.id', '=', 'compra_users.products_id')
-        ->where('compras_users.user_id', '=', $user->id)
-        ->get();
-        return $compraUser;
+        $orders = DB::table('compra_users')->where("user_id", "=", $request->id)->get();
+        return $orders;
     }
 
     /**
