@@ -99,8 +99,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        Product::where('name', $request->name)
-        ->update(['stock' => $request->stock]);
+        Product::where('id', $request->id)
+        ->update(['stock' => $request->stock, 'name' => $request->name, 'description' => $request->description, 'image' => $request->image, 'category_id' => $request->category_id, 'price' => $request->price]);
+        return Product::where('id', $request->id)->get();
     }
 
     /**

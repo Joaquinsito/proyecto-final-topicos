@@ -26,6 +26,7 @@ const Mainprofile = () => {
             setLoading(true);
             axios.post('http://localhost/projectMascotitas/public/api/userData', formData, 
             {headers:{'Content-Type': 'multipart/form-data',
+            'Authorization': 'Bearer ' + location.state.token,
             'Accept': 'application/json'}})
                                     .then((response) => {
                                         setData(response.data);

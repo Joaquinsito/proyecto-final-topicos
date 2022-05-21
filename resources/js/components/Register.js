@@ -4,6 +4,7 @@ import {Button, Form} from 'react-bootstrap';
 import axios from 'axios';
 import { useHistory, useParams} from "react-router-dom";
 import Swal from 'sweetalert2';
+import Navigation from './Nav';
 // import Form from 'react-bootstrap/Form';
 
 const RegisterForm = () => {
@@ -69,6 +70,8 @@ const handleSubmit = (e) => {
     });
 }
     return (
+        <>
+    <Navigation></Navigation>
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-md-8">
@@ -107,7 +110,7 @@ const handleSubmit = (e) => {
                 </div>
             </div>
         </div>
-
+        </>
         
     );
 

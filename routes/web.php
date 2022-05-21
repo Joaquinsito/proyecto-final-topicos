@@ -51,3 +51,35 @@ Route::get('/user/Mainprofile', function () {
 Route::get('/user/NavUser', function () {
     return view('welcome');
 });
+
+Route::get('/admindashboard/MainAdmin', function () {
+    return view('welcome');
+});
+
+Route::get('/admindashboard/AProducts', function () {
+    return view('welcome');
+});
+
+Route::get('/admindashboard/AUsers', function () {
+    return view('welcome');
+});
+
+Route::get('/admindashboard/AOrder', function () {
+    return view('welcome');
+});
+
+Route::get('/admindashboard/AddProdcut', function () {
+    return view('welcome');
+});
+
+Route::get('/admindashboard/EditProduct', function () {
+    return view('welcome');
+});
+
+Route::get('/admindashboard/DeleteProduct', function () {
+    return view('welcome');
+});
+
+Route::get('/admindashboard/DeleteOrder', function () {
+    return view('welcome');
+});

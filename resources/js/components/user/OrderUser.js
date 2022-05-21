@@ -48,6 +48,7 @@ const orderUser = () =>{
                     <tbody>
                         {data.map((dataItem) => (
                             <tr key={dataItem.id}>
+                                <td>{dataItem.id}</td>
                                 <td>{dataItem.user_id}</td>
                                 <td>{dataItem.products_id}</td>
                                 <td>{dataItem.amount}</td>

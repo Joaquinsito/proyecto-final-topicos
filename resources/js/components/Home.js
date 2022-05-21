@@ -25,7 +25,10 @@ const Home = (props) => {
     }
     const getProducts = async () => {
         setLoading(true);
-        axios.post('http://localhost/projectMascotitas/public/api/indexproduct')
+        axios.post('http://localhost/projectMascotitas/public/api/indexproduct',
+        {headers:{'Content-Type': 'multipart/form-data',
+        'Authorization': 'Bearer ' + location.state.token,
+        'Accept': 'application/json'}})
                                 .then((response) => {
                                     setData(response.data);
                                 });

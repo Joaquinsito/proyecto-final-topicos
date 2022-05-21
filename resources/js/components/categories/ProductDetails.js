@@ -58,6 +58,7 @@ const Details = props => {
                 {
                     headers: {
                         "Content-Type": "multipart/form-data",
+                        'Authorization': 'Bearer ' + location.state.token,
                         Accept: "application/json",
                     },
                 }

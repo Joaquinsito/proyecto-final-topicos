@@ -26,8 +26,10 @@ use PhpParser\Node\Expr\PostDec;
 
 Route::post('register', [PassportAuthController::class, 'register']);
 Route::post('login', [PassportAuthController::class, 'login']);
-Route::post('userData', [PassportAuthController::class, 'userData']);
+
 Route::post('updateData', [PassportAuthController::class, 'updateData']);
+Route::post('users', [PassportAuthController::class, 'users']);
+Route::post('deleteUser', [PassportAuthController::class, 'deleteUser']);
 
 
 Route::post('createcategory', [CategoryController::class, 'create']);
@@ -49,9 +51,10 @@ Route::post('deleteproduct', [ProductController::class, 'destroy']);
 Route::post('createCompra', [CompraUserController::class, 'create']);
 Route::post('allcompraUser', [CompraUserController::class, 'index']);
 Route::post('compraUser', [CompraUserController::class, 'compraUser']);
+Route::post('deleteCompra', [CompraUserController::class, 'destroy']);
 
 
 
 Route::middleware('auth:api')->group(function (){
-    
+    Route::post('userData', [PassportAuthController::class, 'userData']);
 });

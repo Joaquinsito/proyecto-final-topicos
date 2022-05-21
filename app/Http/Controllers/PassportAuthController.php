@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Laravel\Passport\Passport;
 
 class PassportAuthController extends Controller
 {
@@ -53,6 +54,16 @@ class PassportAuthController extends Controller
 
     public function updateData(Request $request){
         DB::table('users')->where("id", "=", $request->id)->update(['name' => $request->name, 'lastname' => $request->lastname, 'address' => $request->address]);
+        
+    }
+
+    public function users(){
+        $datos = DB::table('users')->get(); 
+        return $datos;
+    }
+
+    public function deleteUser(Request $request){
+      DB::table('users')->where('id', '=', $request->id)->delete();
         
     }
 }

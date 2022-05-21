@@ -13,8 +13,20 @@ import Mainprofile from './user/Mainprofile'
 import EditProfile from './user/EditProfile'
 import NavigationUser from './user/NavUser'
 import OrderUser from './user/OrderUser'
-
+import NavigationAdmin from './admindashboard/NavAdmin';
+import AProducts from './admindashboard/AProducts'
+import AUsers from './admindashboard/AUsers'
+import AOrder from './admindashboard/AOrder';
+import MainAdmin from './admindashboard/MainAdmin';
+import AddProduct from './admindashboard/AddProduct';
+import EditProduct from './admindashboard/EditProduct';
+import DeleteProduct from './admindashboard/DeleteProduct';
+import DeleteOrder from './admindashboard/DeleteOrder';
+import AddUser from './admindashboard/AddUsers';
+import DeleteUser from './admindashboard/DeleteUsers';
+import EditUser from './admindashboard/EditUsers';
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom"
+
 
 
 
@@ -36,6 +48,18 @@ function Example() {
                     <Route path="/projectMascotitas/public/user/EditProfile" component={EditProfile} />
                     <Route path="/projectMascotitas/public/user/NavigationUser" component={NavigationUser} />
                     <Route path="/projectMascotitas/public/user/OrderUser" exact component={OrderUser} />
+                    <Route path="/projectMascotitas/public/admindashboard/NavAdmin" exact component={NavigationAdmin} />
+                    <Route path="/projectMascotitas/public/admindashboard/AProducts" exact component={AProducts} />
+                    <Route path="/projectMascotitas/public/admindashboard/AOrder" exact component={AOrder} />
+                    <Route path="/projectMascotitas/public/admindashboard/AUsers" exact component={AUsers} />
+                    <Route path="/projectMascotitas/public/admindashboard/MainAdmin" exact component={MainAdmin}/>
+                    <Route path="/projectMascotitas/public/admindashboard/AddProduct" exact component={AddProduct} />
+                    <Route path="/projectMascotitas/public/admindashboard/EditProduct" exact component={EditProduct} />
+                    <Route path="/projectMascotitas/public/admindashboard/DeleteProduct" exact component={DeleteProduct} />
+                    <Route path="/projectMascotitas/public/admindashboard/DeleteOrder" exact component={DeleteOrder} />
+                    <Route path="/projectMascotitas/public/admindashboard/DeleteUsers" exact component={DeleteUser} />
+                    <Route path="/projectMascotitas/public/admindashboard/EditUsers" exact component={EditUser} />
+                    <Route path="/projectMascotitas/public/admindashboard/AddUsers" exact component={AddUser} />
                 </Switch>
             </main>
         </Router>

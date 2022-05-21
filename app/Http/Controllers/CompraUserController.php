@@ -18,7 +18,10 @@ class CompraUserController extends Controller
      */
     public function index()
     {
-        return CompraUser::all();
+        $compras = CompraUser::join('products', 'products.id', '=', 'compra_users.products_id')
+        ->get(['compra_users.id','compra_users.user_id', 'compra_users.products_id', 'products.name', 'compra_users.amount']);
+        // return CompraUser::all();
+        return $compras;
     }
 
     public function compraUser(Request $request){
@@ -104,8 +107,8 @@ class CompraUserController extends Controller
      * @param  \App\Models\CompraUser  $compraUser
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CompraUser $compraUser)
+    public function destroy(CompraUser $compraUser, Request $request)
     {
-        //
+        CompraUser::where('id', $request->id)->delete();
     }
 }

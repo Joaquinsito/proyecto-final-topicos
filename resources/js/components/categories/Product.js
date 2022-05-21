@@ -35,6 +35,7 @@ const Product = (props) => {
         setLoading(true);
         axios.post('http://localhost/projectMascotitas/public/api/categories', formData, 
         {headers:{'Content-Type': 'multipart/form-data',
+        'Authorization': 'Bearer ' + location.state.token,
         'Accept': 'application/json'}})
                                 .then((response) => {
                                     setData(response.data);
