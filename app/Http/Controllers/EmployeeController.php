@@ -89,8 +89,8 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        Employee::where('email', $request->email)
-        ->update(['password' => $request->password]);
+        Employee::where('id', $request->id)
+        ->update(['name' => $request->name, 'lastname' => $request->lastname]);
 
         return Employee::all();
     }
@@ -103,7 +103,7 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee, Request $request)
     {
-        $employee = Employee::where('email', $request->email)->delete();
+        $employee = Employee::where('id', $request->id)->delete();
 
         return Employee::all();
     }

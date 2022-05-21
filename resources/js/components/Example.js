@@ -25,6 +25,14 @@ import DeleteOrder from './admindashboard/DeleteOrder';
 import AddUser from './admindashboard/AddUsers';
 import DeleteUser from './admindashboard/DeleteUsers';
 import EditUser from './admindashboard/EditUsers';
+import ACategories from './admindashboard/ACategories';
+import AddCategories from './admindashboard/AddCategories';
+import EditCategories from './admindashboard/EditCategories';
+import DeleteCategories from './admindashboard/DeleteCategories';
+import AEmployee from './admindashboard/AEmployee';
+import EditEmployee from './admindashboard/EditEmployee';
+import DeleteEmployee from './admindashboard/DeleteEmployee';
+import AddEmployee from './admindashboard/AddEmployee';
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom"
 
 
@@ -60,6 +68,14 @@ function Example() {
                     <Route path="/projectMascotitas/public/admindashboard/DeleteUsers" exact component={DeleteUser} />
                     <Route path="/projectMascotitas/public/admindashboard/EditUsers" exact component={EditUser} />
                     <Route path="/projectMascotitas/public/admindashboard/AddUsers" exact component={AddUser} />
+                    <Route path="/projectMascotitas/public/admindashboard/ACategories" exact component={ACategories} />
+                    <Route path="/projectMascotitas/public/admindashboard/EditCategories" exact component={EditCategories} />
+                    <Route path="/projectMascotitas/public/admindashboard/DeleteCategories" exact component={DeleteCategories} />
+                    <Route path="/projectMascotitas/public/admindashboard/AddCategories" exact component={AddCategories} />
+                    <Route path="/projectMascotitas/public/admindashboard/AEmployee" exact component={AEmployee} />
+                    <Route path="/projectMascotitas/public/admindashboard/AddEmployee" exact component={AddEmployee} />
+                    <Route path="/projectMascotitas/public/admindashboard/EditEmployee" exact component={EditEmployee} />
+                    <Route path="/projectMascotitas/public/admindashboard/DeleteEmployee" exact component={DeleteEmployee} />
                 </Switch>
             </main>
         </Router>

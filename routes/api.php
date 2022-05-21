@@ -35,7 +35,9 @@ Route::post('deleteUser', [PassportAuthController::class, 'deleteUser']);
 Route::post('createcategory', [CategoryController::class, 'create']);
 Route::post('updatecategory', [CategoryController::class, 'update']);
 Route::post('deletecategory', [CategoryController::class, 'destroy']);
+Route::post('category', [CategoryController::class, 'index']);
 
+Route::post('employees', [EmployeeController::class, 'index']);
 Route::post('createemployee', [EmployeeController::class, 'create']);
 Route::post('updateemployee', [EmployeeController::class, 'update']);
 Route::post('deleteemployee', [EmployeeController::class, 'destroy']);
@@ -52,6 +54,11 @@ Route::post('createCompra', [CompraUserController::class, 'create']);
 Route::post('allcompraUser', [CompraUserController::class, 'index']);
 Route::post('compraUser', [CompraUserController::class, 'compraUser']);
 Route::post('deleteCompra', [CompraUserController::class, 'destroy']);
+
+
+
+
+
 
 
 

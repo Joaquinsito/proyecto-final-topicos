@@ -68,11 +68,35 @@ Route::get('/admindashboard/AOrder', function () {
     return view('welcome');
 });
 
+Route::get('/admindashboard/ACategories', function () {
+    return view('welcome');
+});
+
+Route::get('/admindashboard/AEmployee', function () {
+    return view('welcome');
+});
+
 Route::get('/admindashboard/AddProdcut', function () {
     return view('welcome');
 });
 
+Route::get('/admindashboard/AddCategories', function () {
+    return view('welcome');
+});
+
+Route::get('/admindashboard/AddEmployee', function () {
+    return view('welcome');
+});
+
 Route::get('/admindashboard/EditProduct', function () {
+    return view('welcome');
+});
+
+Route::get('/admindashboard/EditCategories', function () {
+    return view('welcome');
+});
+
+Route::get('/admindashboard/EditEmployee', function () {
     return view('welcome');
 });
 
@@ -81,5 +105,13 @@ Route::get('/admindashboard/DeleteProduct', function () {
 });
 
 Route::get('/admindashboard/DeleteOrder', function () {
+    return view('welcome');
+});
+
+Route::get('/admindashboard/DeleteCategories', function () {
+    return view('welcome');
+});
+
+Route::get('/admindashboard/DeleteEmployee', function () {
     return view('welcome');
 });

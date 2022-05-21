@@ -37,6 +37,20 @@ const  NavigationAdmin = props =>  {
         )
     }
 
+    const toCategories = (e) =>{
+        history.push({
+            pathname: "/projectMascotitas/public/admindashboard/ACategories",
+         }
+        )
+    }
+
+    const toEmployee = (e) =>{
+        history.push({
+            pathname: "/projectMascotitas/public/admindashboard/AEmployee",
+         }
+        )
+    }
+
      return ( 
             <Navbar bg="dark" variant="dark" sticky="top">
                     <Container>
@@ -48,6 +62,8 @@ const  NavigationAdmin = props =>  {
                                 <Nav.Link  onClick={toProducts}>Products</Nav.Link>
                                 <Nav.Link  onClick={toOrders}>Orders</Nav.Link>
                                 <Nav.Link  onClick={toUsers}>Users</Nav.Link>
+                                <Nav.Link  onClick={toCategories}>Categories</Nav.Link>
+                                <Nav.Link  onClick={toEmployee}>Employees</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                         <Navbar.Collapse className="justify-content-end">
