@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Container, Table } from "react-bootstrap";
 import axios from 'axios';
-import { useHistory, useParams} from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Swal from 'sweetalert2';
 import NavigationAdmin from './NavAdmin';
 import { BsFillPencilFill, BsFillTrashFill, BsArchiveFill } from "react-icons/bs";
@@ -22,8 +22,8 @@ const ACategories = () => {
             console.log(data);
         })();
     }, []);
-    
-    
+
+
     const toAdd = () => {
         history.push({
             pathname: "/projectMascotitas/public/admindashboard/AddCategories",
@@ -52,15 +52,12 @@ const ACategories = () => {
 
     return (
         <>
-         <NavigationAdmin/>
-        <Container>
-                <center>
-                    <br />
-                    <h2>Categories</h2>
-                </center>
+            <NavigationAdmin />
+            <Container className="container mt-5 p-5 col-sm-10 bg-white">
+                    <h2 className='text-center'>Categories</h2>
                 <Button variant="success" onClick={() => {
-                                toAdd();
-                                }}><BsArchiveFill/></Button>
+                    toAdd();
+                }}><BsArchiveFill /></Button>
                 <hr />
                 <Table striped bordered hover size="sm">
                     <thead>
@@ -76,13 +73,14 @@ const ACategories = () => {
                                 <td>{dataItem.id}</td>
                                 <td>{dataItem.name}</td>
                                 <td>
-                                <Button onClick={() => {
-                                toEdit(dataItem);
-                                }}><BsFillPencilFill/></Button>
-                                <Button variant="danger" 
-                                onClick={() => {
-                                    toDelete(dataItem);
-                                    }}><BsFillTrashFill/></Button></td>
+                                        <Button className='btn me-2' onClick={() => {
+                                            toEdit(dataItem);
+                                        }}><BsFillPencilFill /></Button>
+                                        <Button className='btn' variant="danger"
+                                            onClick={() => {
+                                                toDelete(dataItem);
+                                            }}><BsFillTrashFill /></Button>
+                                </td>
                             </tr>
                         ))}
                     </tbody>

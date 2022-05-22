@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Container, Form } from "react-bootstrap";
 import axios from 'axios';
-import { useHistory, useLocation} from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import Swal from 'sweetalert2';
 import NavigationAdmin from './NavAdmin';
 
-const DeleteOrder = () =>{
+const DeleteOrder = () => {
     let history = useHistory();
     const location = useLocation();
     const [formValue, setformValue] = React.useState({
@@ -38,15 +38,19 @@ const DeleteOrder = () =>{
             });
     }
     return (
-        <>  
-        <NavigationAdmin></NavigationAdmin>
-            <Container>
-                <h1>Delete the order: {location.state.id}</h1>
-                <h4>are you sure?</h4>
-                <Button onClick={deleteProduct}>
-                    Delete
-                </Button>
+        <>
+            <NavigationAdmin></NavigationAdmin>
+            <Container className="container mt-5 p-5 col-sm-7 bg-white">
+                <h1>Delete the order: <span className='text-danger'>{location.state.id}</span></h1>
+
+                <div className='mt-4 text-center'>
+                    <h3>Are you sure?</h3>
+                    <Button className='btn col-sm-2' variant='primary' onClick={deleteProduct}>
+                        Delete
+                    </Button>
+                </div>
             </Container>
+
         </>
     );
 }

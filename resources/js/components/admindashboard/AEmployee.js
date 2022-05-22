@@ -53,11 +53,9 @@ const AEmployee = () => {
     return (
         <>
          <NavigationAdmin/>
-        <Container>
-                <center>
-                    <br />
-                    <h2>Users</h2>
-                </center>
+        <Container className="container mt-5 p-5 col-sm-10 bg-white">
+                
+                    <h2 className='text-center'>Employee</h2>
                 <Button variant="success" onClick={() => {
                                 toAdd();
                                 }}><BsFillPersonPlusFill></BsFillPersonPlusFill></Button>
@@ -79,10 +77,10 @@ const AEmployee = () => {
                                 <td>{dataItem.name}</td>
                                 <td>{dataItem.lastname}</td>
                                 <td>{dataItem.email}</td>
-                                <td><Button onClick={() => {
+                                <td><Button className='btn me-2' onClick={() => {
                                 toEdit(dataItem);
                                 }}><BsFillPencilFill/></Button>
-                                <Button variant="danger" onClick={() => {
+                                <Button className='btn' variant="danger" onClick={() => {
                                 toDelete(dataItem);
                                 }}><BsFillTrashFill/></Button></td>
                             </tr>

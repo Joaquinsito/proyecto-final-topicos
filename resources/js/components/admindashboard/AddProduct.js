@@ -75,10 +75,9 @@ const AddProduct = () => {
     return (
         <>
         <NavigationAdmin />
-        <Container>
+        <Container className="container mt-5 p-5 col-sm-7 bg-white align-items-center">
+            <h1 className='text-center' >Add a new product</h1>
             <br />
-            <br />
-            <h1>Add a new product</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Name of the product</Form.Label>

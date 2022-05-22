@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Container, Table } from "react-bootstrap";
 import axios from 'axios';
-import { useHistory, useParams} from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Swal from 'sweetalert2';
 import NavigationAdmin from './NavAdmin';
 import { BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
@@ -34,12 +34,11 @@ const AOrder = () => {
 
     return (
         <>
-         <NavigationAdmin/>
-        <Container>
-                <center>
-                    <br />
-                    <h2>Orders</h2>
-                </center>
+            <NavigationAdmin />
+            <Container className="container mt-5 p-5 col-sm-10 bg-white">
+
+                <h2 className='text-center'>Orders</h2>
+
                 <hr />
                 <Table striped bordered hover size="sm">
                     <thead>
@@ -60,10 +59,10 @@ const AOrder = () => {
                                 <td>{dataItem.name}</td>
                                 <td>{dataItem.products_id}</td>
                                 <td>{dataItem.amount}</td>
-                                <td><Button variant="danger" 
-                                onClick={() => {
-                                    toDelete(dataItem);
-                                    }}><BsFillTrashFill/></Button></td>
+                                <td><Button variant="danger"
+                                    onClick={() => {
+                                        toDelete(dataItem);
+                                    }}><BsFillTrashFill /></Button></td>
                             </tr>
                         ))}
                     </tbody>

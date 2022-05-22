@@ -32,9 +32,8 @@ const orderUser = () =>{
     return (
         <> 
             <NavigationUser />
-            <Container>
-                <br />
-                <h1>Orders</h1>
+            <Container className="container mt-5 p-5 col-sm-9 bg-white">
+                <h1 className="text-center">Orders</h1>
                 <hr />
                 <Table striped bordered hover size="sm">
                     <thead>

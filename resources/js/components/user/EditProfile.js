@@ -74,11 +74,12 @@ const Mainprofile = () => {
         return(
             <> 
             <NavigationUser id={location.state.id} token={location.state.token}/>
-            <div className="container">
+            <div className="container mt-5">
             <div className="row justify-content-center">
                 <div className="col-md-8">
-                    <div className="card">
+                    <div className="card p-5">
                     <Form onSubmit={handleSubmit}>
+                    <Form.Label className='form-control-lg fs-2 fw-bold col-sm-12 text-center'>Edit your information</Form.Label>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Name</Form.Label>
                             <Form.Control type="text" placeholder={location.state.name} name="name" value={formValue.name}

@@ -56,11 +56,10 @@ const AProdcuts = () => {
     return (
         <>
          <NavigationAdmin/>
-        <Container>
-                <center>
-                    <br />
-                    <h2>Productos</h2>
-                </center>
+        <Container className="container mt-5 p-5 col-sm-10 bg-white">
+                
+                    <h2 className='text-center'>Productos</h2>
+            
                 <Button variant="success" onClick={toAdd}><BsFillArchiveFill></BsFillArchiveFill></Button>
                 <hr />
                 <Table striped bordered hover size="sm">
@@ -84,10 +83,10 @@ const AProdcuts = () => {
                                 <td>{dataItem.description}</td>
                                 <td>${dataItem.price}</td>
                                 <td>{dataItem.stock}</td>
-                                <td><Button  onClick={() => {
+                                <td><Button  className='btn me-2' onClick={() => {
                                 toEdit(dataItem);
                                 }}><BsFillPencilFill/></Button>
-                                <Button  onClick={() => {
+                                <Button className='btn' onClick={() => {
                                 toDelete(dataItem);
                                 }}variant="danger"><BsFillTrashFill/></Button></td>
                             </tr>

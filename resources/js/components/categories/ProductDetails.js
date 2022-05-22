@@ -22,10 +22,10 @@ const Details = props => {
             toast.addEventListener('mouseenter', Swal.stopTimer)
             toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
-      })
+    })
 
 
-    const style ={
+    const style = {
         cardImg: {
             objectFit: 'cover',
             borderRadius: 25,
@@ -80,32 +80,34 @@ const Details = props => {
 
     return (
         <>
-        <NavigationUser/>
-        <Container className="pt-4">
-            <Container className="shadow p-3 mb-5 bg-white rounded">
-                <Row>
-                    <Col sm="6"><Image src={location.state.image} style={style.cardImg} className="mx-auto"></Image></Col>
-                    <Col sm="6">
-                        <Row><Col className="h1 bold">{location.state.name}</Col></Row>
-                        <Row><Col className="h5">{location.state.description}</Col></Row>
-                        <Row><Col className="text-muted"> Stock: {location.state.stock}</Col></Row>
-                        <Row><Col className="strong">Price: {location.state.price}</Col></Row>
-                        <Row><Col className="strong">
-                            <Form onSubmit={handleSubmit}>
-                                <Form.Group className="mb-3" controlId="formBasicEmail">
-                                    <Form.Label>Amount</Form.Label>
-                                    <Form.Control type="number" name="amount" max={location.state.stock} value={formValue.amount}
-                                    onChange = {onChange}/>
-                                </Form.Group>
-                                <Button variant="primary" type="submit">
-                                    Submit
-                                </Button>
-                            </Form>
-                        </Col></Row>
-                    </Col>
-                </Row>
+            <NavigationUser />
+            <Container className="pt-4">
+                <Container className="shadow p-3 mb-5 bg-white rounded">
+                    <Row>
+                        <Col sm="6"><Image src={location.state.image} style={style.cardImg} className="mx-auto"></Image></Col>
+                        <Col sm="6">
+                            <Row><Col className="h1 bold">{location.state.name}</Col></Row>
+                            <Row><Col className="h4 mt-4 bold">Price: <span className="text-dark bold">{location.state.price}</span></Col></Row>
+                            <Row><Col className="h5">{location.state.description}</Col></Row>
+                            <Row><Col className="text-muted mb-2"> Stock: {location.state.stock}</Col></Row>
+                            <Row><Col className="strong">
+                                <Form onSubmit={handleSubmit}>
+                                    <Form.Group className="form-group row mb-3" controlId="formBasicEmail">
+                                        <Form.Label className="col-sm-2 col-form-label">Amount</Form.Label>
+                                        <div className="col-sm-6"><Form.Control className="col-sm-10 form-control" type="number" name="amount" max={location.state.stock} value={formValue.amount}
+                                            onChange={onChange} /></div>
+
+                                    </Form.Group>
+                                        <Button variant="primary col-sm-4 mt-3" type="submit">
+                                            Submit
+                                        </Button>
+
+                                </Form>
+                            </Col></Row>
+                        </Col>
+                    </Row>
+                </Container>
             </Container>
-        </Container>
         </>
     )
 }

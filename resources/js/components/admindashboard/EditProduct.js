@@ -76,10 +76,8 @@ const EditProduct = () => {
     return (
         <>
         <NavigationAdmin />
-        <Container>
-            <br />
-            <br />
-            <h1>Edit Product</h1>
+        <Container className="container mt-5 p-5 col-sm-7 bg-white">
+            <h1 className='text-center mb-5'>Edit Product</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Name of the product</Form.Label>
