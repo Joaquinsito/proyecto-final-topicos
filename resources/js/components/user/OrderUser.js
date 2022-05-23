@@ -41,6 +41,7 @@ const orderUser = () =>{
                             <th>Order Id</th>
                             <th>ID client</th>
                             <th>ID producto</th>
+                            <th>Name</th>
                             <th>Amount</th>
                         </tr>
                     </thead>
@@ -49,6 +50,7 @@ const orderUser = () =>{
                             <tr key={dataItem.id}>
                                 <td>{dataItem.id}</td>
                                 <td>{dataItem.user_id}</td>
+                                <td>{dataItem.name}</td>
                                 <td>{dataItem.products_id}</td>
                                 <td>{dataItem.amount}</td>
                             </tr>

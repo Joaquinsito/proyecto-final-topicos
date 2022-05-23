@@ -25,8 +25,11 @@ class CompraUserController extends Controller
     }
 
     public function compraUser(Request $request){
-        $orders = DB::table('compra_users')->where("user_id", "=", $request->id)->get();
-        return $orders;
+        // $orders = DB::table('compra_users')->where("user_id", "=", $request->id)->get();
+        // return $orders;
+        $compras = CompraUser::join('products', 'products.id', '=', 'compra_users.products_id')->where("user_id", "=", $request->id)
+        ->get(['compra_users.id','compra_users.user_id', 'compra_users.products_id', 'products.name', 'compra_users.amount']);
+        return $compras;
     }
 
     /**
