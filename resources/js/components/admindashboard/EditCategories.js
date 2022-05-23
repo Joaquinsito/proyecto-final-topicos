@@ -66,10 +66,8 @@ const EditCategories = () => {
     return (
         <>
         <NavigationAdmin />
-        <Container>
-            <br />
-            <br />
-            <h1>Edit Category</h1>
+        <Container className="container mt-5 p-5 col-sm-7 bg-white">
+            <h1 className='text-center mb-5'>Edit Category</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Name</Form.Label>

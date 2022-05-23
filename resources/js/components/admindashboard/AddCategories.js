@@ -53,7 +53,7 @@ const AddCategories = () => {
                 console.log(response);
                 Toast.fire({
                     icon: 'success',
-                    title: 'Product added successfully'
+                    title: 'Category added successfully'
                   })
                 history.push("/projectMascotitas/public/admindashboard/ACategories");
             })
@@ -65,10 +65,8 @@ const AddCategories = () => {
     return (
         <>
         <NavigationAdmin />
-        <Container>
-            <br />
-            <br />
-            <h1>Add a new category</h1>
+        <Container className="container mt-5 p-5 col-sm-7 bg-white align-items-center">
+            <h1 className='text-center mb-5'>Add a new category</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Name of the category</Form.Label>
@@ -82,7 +80,7 @@ const AddCategories = () => {
                 </Form.Group>
                 <div align="center">
                     <Button variant="secondary" type="submit">
-                        Add categories
+                        Add category
                     </Button>
                 </div>
             </Form>

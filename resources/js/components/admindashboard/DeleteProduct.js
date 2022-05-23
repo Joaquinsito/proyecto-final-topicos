@@ -40,12 +40,14 @@ const DeleteProduct = () =>{
     return (
         <>  
         <NavigationAdmin></NavigationAdmin>
-            <Container>
-                <h1>Delete the product: {location.state.name}</h1>
-                <h4>are you sure?</h4>
-                <Button onClick={deleteProduct}>
-                    Delete
-                </Button>
+        <Container className="container mt-5 p-5 col-sm-7 bg-white">
+                <h1>Delete the product: <span className='text-danger'>{location.state.name}</span> </h1>
+                <div className='mt-4 text-center'>
+                    <h3>Are you sure?</h3>
+                    <Button className='btn col-sm-2' variant='primary' onClick={deleteProduct}>
+                        Delete
+                    </Button>
+                </div>
             </Container>
         </>
     );

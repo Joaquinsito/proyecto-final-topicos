@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Container, Table } from "react-bootstrap";
 import axios from 'axios';
-import { useHistory, useParams} from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Swal from 'sweetalert2';
 import NavigationAdmin from './NavAdmin';
 import { BsFillPencilFill, BsFillTrashFill, BsFillPersonPlusFill } from "react-icons/bs";
@@ -53,15 +53,13 @@ const AUsers = () => {
     };
     return (
         <>
-         <NavigationAdmin/>
-        <Container>
-                <center>
-                    <br />
-                    <h2>Users</h2>
-                </center>
+            <NavigationAdmin />
+            <Container className="container mt-5 p-5 col-sm-10 bg-white">
+
+                <h2 className='text-center'>Users</h2>
                 <Button variant="success" onClick={() => {
-                                toAdd();
-                                }}><BsFillPersonPlusFill></BsFillPersonPlusFill></Button>
+                    toAdd();
+                }}><BsFillPersonPlusFill></BsFillPersonPlusFill></Button>
                 <hr />
                 <Table striped bordered hover size="sm">
                     <thead>
@@ -82,12 +80,12 @@ const AUsers = () => {
                                 <td>{dataItem.lastname}</td>
                                 <td>{dataItem.address}</td>
                                 <td>{dataItem.email}</td>
-                                <td><Button onClick={() => {
-                                toEdit(dataItem);
-                                }}><BsFillPencilFill/></Button>
-                                <Button variant="danger" onClick={() => {
-                                toDelete(dataItem);
-                                }}><BsFillTrashFill/></Button></td>
+                                <td><Button className='btn me-2' onClick={() => {
+                                    toEdit(dataItem);
+                                }}><BsFillPencilFill /></Button>
+                                    <Button className='btn' variant="danger" onClick={() => {
+                                        toDelete(dataItem);
+                                    }}><BsFillTrashFill /></Button></td>
                             </tr>
                         ))}
                     </tbody>
