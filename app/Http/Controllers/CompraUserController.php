@@ -57,6 +57,7 @@ class CompraUserController extends Controller
         ]);
 
         return CompraUser::all();
+
     }
 
     /**

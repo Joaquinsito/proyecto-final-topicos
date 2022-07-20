@@ -63,16 +63,16 @@ const LoginForm = () => {
             )
         }).catch(error => {
             console.log(error);
-            // Toast.fire({
-            //     icon: 'error',
-            //     title: 'Bad Credentials'
-            //   })
-
             if (formValue.password == "root" &&
                 formValue.email == "admin@mascotitas.com") {
                 history.push({
                     pathname: "/projectMascotitas/public/admindashboard/MainAdmin",
                 })
+            }else{
+                  Toast.fire({
+                icon: 'error',
+                title: 'Bad Credentials'
+              })
             }
         });
 

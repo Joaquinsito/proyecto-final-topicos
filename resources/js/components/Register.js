@@ -40,6 +40,8 @@ const RegisterForm = () => {
     const handleSubmit = (e) => {
         if (e && e.preventDefault()) e.preventDefault();
         const formData = new FormData();
+
+        
         formData.append("name", formValue.name)
         formData.append("lastname", formValue.lastname)
         formData.append("address", formValue.address)

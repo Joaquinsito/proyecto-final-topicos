@@ -114,4 +114,6 @@ class ProductController extends Controller
     {
         Product::where('name', $request->name)->delete();
     }
+
+   
 }
